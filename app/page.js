@@ -128,7 +128,7 @@ export default function Home() {
         </div>
 
         {/* right box */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center gap-10 pl-10">
+        <div className="w-[100%] lg:w-1/2 flex flex-col justify-center gap-10   sm:pl-10">
           <div>
           <Title title={titleText} className="text-2xl font-semibold" />
 
@@ -183,7 +183,7 @@ export default function Home() {
             />
           </div>
           <Button
-              className="absolute bottom-[-12%] left-[35%] text-white  text-[10px] uppercase w-[180px] py-2 bg-[#80B1B7] rounded-lg tracking-wide sm:hidden"
+              className=" text-[10px] text-white py-3 ml-5 uppercase bg-[#80B1B7] rounded-lg tracking-wide sm:hidden sm:ml-0"
               onClick={handleSubmit}
               type="submit"
             >
