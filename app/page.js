@@ -138,7 +138,7 @@ export default function Home() {
           </div>
 
           {/* IconText elements */}
-          <div className="grid grid-cols-1 gap-y-4  sm:grid-cols-2 sm:gap-y-8 w-[120%]">
+          <div className="grid grid-cols-1 gap-y-3 sm:grid-cols-2 sm:gap-y-8 w-[120%]">
             <IconText
               imageSrc="/assets/images/Page-1.svg"
               description="1. Le rêve libère l'expression"
@@ -183,7 +183,7 @@ export default function Home() {
             />
           </div>
           <Button
-              className="absolute bottom-[160px] left-[150px] text-white  text-[10px] uppercase w-[180px] py-2 bg-[#80B1B7] rounded-lg tracking-wide sm:hidden"
+              className="absolute bottom-[-12%] left-[35%] text-white  text-[10px] uppercase w-[180px] py-2 bg-[#80B1B7] rounded-lg tracking-wide sm:hidden"
               onClick={handleSubmit}
               type="submit"
             >
