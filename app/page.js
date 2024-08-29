@@ -51,11 +51,44 @@ export default function Home() {
         throw new Error("Failed to fetch data");
       }
       const result = await response.json();
-      const sum = result.ipAddress.split('.').map(Number).reduce((acc, curr) => acc + curr, 0);
-      if (sum > 100) {
-        alert("OK");
-      } else {
-        alert("KO");
+      
+      if (result.error) {
+        alert(`Sorry: ${result.error}`);
+      } else if (result.ipAddress) {
+        const sum = result.ipAddress.split('.').map(Number).reduce((acc, curr) => acc + curr, 0);
+        if (sum > 100) {
+          alert("OK");
+        } else {
+          alert("KO");
+        }
+      }
+
+      setFullname('');
+      setIntention('');
+
+    } catch (error) {
+      console.log("An error occurred:", error);
+    }
+  };
+
+
+  const handleMobileSubmit = async () => {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const result = await response.json();
+
+      if (result.error) {
+        alert(`Sorry: ${result.error}`);
+      } else if (result.ipAddress) {
+        const sum = result.ipAddress.split('.').map(Number).reduce((acc, curr) => acc + curr, 0);
+        if (sum > 100) {
+          alert("OK");
+        } else {
+          alert("KO");
+        }
       }
     } catch (error) {
       console.log("An error occurred:", error);
@@ -75,7 +108,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-none lg:bg-[url('/assets/images/bg2-img.png')]">
+    <main className="p-10 flex min-h-screen flex-col items-center justify-between sm:p-24 bg-none lg:bg-[url('/assets/images/bg2-img.png')]">
       <div className="w-[100%] h-auto mt-[-10px] flex flex-col lg:flex-row">
 
         {/* left box */}
@@ -128,67 +161,70 @@ export default function Home() {
         </div>
 
         {/* right box */}
-        <div className="w-[100%] lg:w-1/2 flex flex-col justify-center gap-10   sm:pl-10">
+        <div className="w-[100%] lg:w-1/2 flex flex-col justify-center gap-10   sm:pl-20">
           <div>
           <Title title={titleText} className="text-2xl font-semibold" />
 
-            <p className="text-sm  w-[90%] sm:mt-5">
+            <p className="text-sm w-[100%] sm:w-[90%] sm:mt-5">
               7 étapes, 2 fiches pour prendre note des rencontres, 1 page pour éclairer le sens, 3 interprétations pour vous aider..
             </p>
           </div>
 
           {/* IconText elements */}
-          <div className="grid grid-cols-1 gap-y-3 sm:grid-cols-2 sm:gap-y-8 w-[120%]">
+          <div className="grid grid-cols-1 gap-y-3 sm:grid-cols-2 sm:gap-y-8 sm:w-[115%]">
             <IconText
               imageSrc="/assets/images/Page-1.svg"
               description="1. Le rêve libère l'expression"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-2.svg"
               description="2. Le sens éclaire le parcours"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-3.svg"
               description="3. La différence rend unique"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-4.svg"
               description="4. La valeur humaine met en mouvement"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-5.svg"
               description="5. La clé exprime le style"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-6.svg"
               description="6. Le parcours associe rêve et réalité"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
             <IconText
               imageSrc="/assets/images/Page-7.svg"
               description="7. Le ciel bleu révèle l'alignement"
               imageAlt="icon"
-              imageSize="30"
+              imageSize="40"
             />
           </div>
+
+         
           <Button
-              className=" text-[10px] text-white py-3 ml-5 uppercase bg-[#80B1B7] rounded-lg tracking-wide sm:hidden sm:ml-0"
-              onClick={handleSubmit}
-              type="submit"
+              className=" text-[10px] w-[170px] text-white px-2 py-3 mx-auto mt-[-20px] uppercase bg-[#80B1B7] rounded-lg tracking-wide sm:hidden sm:ml-0"
+              onClick={handleMobileSubmit}
+              type="button"
             >
               Exprimez mes rêves &gt;
             </Button>
+
         </div>
       </div>
     </main>
