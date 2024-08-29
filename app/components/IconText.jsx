@@ -8,7 +8,7 @@ const IconText = ({ imageSrc, description, imageAlt = '', imageSize = 24 }) => {
           <Image src={imageSrc} alt={imageAlt} width={imageSize} height={imageSize} />
         </div>
         <div>
-          {description && <p className="text-xs text-gray-600">{description}</p>}
+          {description && <p className="pb-3 text-xs text-gray-600 sm:pb-0">{description}</p>}
         </div>
       </div>
     );

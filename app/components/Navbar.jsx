@@ -1,32 +1,13 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
 import Image from 'next/image';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <div
-      className={`flex justify-between items-center fixed w-full px-[100px] transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-sm bg-white/5' : ''
-      }`}
+      className="hidden sm:flex justify-between items-center absolute z-10 w-full px-[100px] bg-transparent"
     >
       <div>
         <Image

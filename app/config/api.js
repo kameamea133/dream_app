@@ -1,0 +1,1 @@
+export const API_URL = 'https://api.db-ip.com/v2/free/self';
